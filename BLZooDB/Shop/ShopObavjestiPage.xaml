@@ -1,0 +1,29 @@
+﻿<Page x:Class="BLZooDB.ShopObavjestiPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BLZooDB"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="600"
+      Title="ShopObavjestiPage">
+
+    <Grid>
+        <StackPanel Orientation="Vertical">
+
+            <Label FontSize="15">Obavjesti</Label>
+
+            <DataGrid x:Name="ObavjestiGrid" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding}" Height="373" Margin="10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding proizvod_id}" Header="ID" x:Name="id" IsReadOnly="True" Width="Auto" />
+                    <DataGridTextColumn Binding="{Binding proizvod_naziv}" Header="Naziv"
+                                    x:Name="name" Width="Auto" />
+                    <DataGridTextColumn Binding="{Binding proizvod_velicina}" Header="Velicina"
+                                    x:Name="size" Width="Auto" />
+                    <DataGridTextColumn Binding="{Binding datum_generisanja}" Header="Datum"
+                                    x:Name="date" Width="Auto" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Page>

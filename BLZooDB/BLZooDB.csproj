@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A0479EA5-6F45-483B-BFA5-BBA4D2B07BC1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BLZooDB</RootNamespace>
+    <AssemblyName>BLZooDB</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.1.11\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.25.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.25\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.25\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.25\lib\net452\Zstandard.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CuvarDodajNovuHranuPage.xaml.cs">
+      <DependentUpon>CuvarDodajNovuHranuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cuvar\CuvarCuvariZaDodjeluPage.xaml.cs">
+      <DependentUpon>CuvarCuvariZaDodjeluPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cuvar\CuvarCuvariZivotinjePage.xaml.cs">
+      <DependentUpon>CuvarCuvariZivotinjePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cuvar\CuvarDodijeliCuvaraPage.xaml.cs">
+      <DependentUpon>CuvarDodijeliCuvaraPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cuvar\CuvarHomePage.xaml.cs">
+      <DependentUpon>CuvarHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cuvar\CuvarObavjestiPage.xaml.cs">
+      <DependentUpon>CuvarObavjestiPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cuvar\CuvarUrediHranu.xaml.cs">
+      <DependentUpon>CuvarUrediHranu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cuvar\CuvarWindow.xaml.cs">
+      <DependentUpon>CuvarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\CuvarDAO.cs" />
+    <Compile Include="DAO\HranaDAO.cs" />
+    <Compile Include="DAO\LijekDAO.cs" />
+    <Compile Include="DAO\NarudzbaDAO.cs" />
+    <Compile Include="DAO\OdjeljenjeDAO.cs" />
+    <Compile Include="DAO\ProizvodDAO.cs" />
+    <Compile Include="DAO\SmjestajDAO.cs" />
+    <Compile Include="DAO\ZaposleniDAO.cs" />
+    <Compile Include="DAO\ZivotinjaDAO.cs" />
+    <Compile Include="Model\Hrana.cs" />
+    <Compile Include="Model\Lijek.cs" />
+    <Compile Include="Model\LogIn.cs" />
+    <Compile Include="Model\Odjeljenje.cs" />
+    <Compile Include="Model\Proizvod.cs" />
+    <Compile Include="Model\Smjestaj.cs" />
+    <Compile Include="Model\Zivotinja.cs" />
+    <Compile Include="ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shop\ShopDodajProizvodPage.xaml.cs">
+      <DependentUpon>ShopDodajProizvodPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shop\ShopHomePage.xaml.cs">
+      <DependentUpon>ShopHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shop\ShopInventarPage.xaml.cs">
+      <DependentUpon>ShopInventarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shop\ShopNarudzbaPage.xaml.cs">
+      <DependentUpon>ShopNarudzbaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shop\ShopObavjestiPage.xaml.cs">
+      <DependentUpon>ShopObavjestiPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shop\ShopOdabirPage.xaml.cs">
+      <DependentUpon>ShopOdabirPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shop\ShopProizvodiPage.xaml.cs">
+      <DependentUpon>ShopProizvodiPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shop\ShopWindow.xaml.cs">
+      <DependentUpon>ShopWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Upravnik\UpravnikHomePage.xaml.cs">
+      <DependentUpon>UpravnikHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Upravnik\UpravnikHranaPage.xaml.cs">
+      <DependentUpon>UpravnikHranaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Upravnik\UpravnikLijekoviPage.xaml.cs">
+      <DependentUpon>UpravnikLijekoviPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Upravnik\UpravnikWindow.xaml.cs">
+      <DependentUpon>UpravnikWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Upravnik\UpravnikZaposleniListPage.xaml.cs">
+      <DependentUpon>UpravnikZaposleniListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Upravnik\UpravnikDodajZaposleogPage.xaml.cs">
+      <DependentUpon>UpravnikDodajZaposleogPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Veterinar\VeterinarAzurirajLijekovePage.xaml.cs">
+      <DependentUpon>VeterinarAzurirajLijekovePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Veterinar\VeterinarAzuriraZivotinjuPage.xaml.cs">
+      <DependentUpon>VeterinarAzuriraZivotinjuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Veterinar\VeterinarDodajLijekPage.xaml.cs">
+      <DependentUpon>VeterinarDodajLijekPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Veterinar\VeterinarDodajZivotinjuPage.xaml.cs">
+      <DependentUpon>VeterinarDodajZivotinjuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Veterinar\VeterinarHomePage.xaml.cs">
+      <DependentUpon>VeterinarHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Veterinar\VeterinarHranaZivotinjePage.xaml.cs">
+      <DependentUpon>VeterinarHranaZivotinjePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Veterinar\VeterinarLijekoviListaPage.xaml.cs">
+      <DependentUpon>VeterinarLijekoviListaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Veterinar\VeterinarLijekoviZivotinjePage.xaml.cs">
+      <DependentUpon>VeterinarLijekoviZivotinjePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Veterinar\VeterinarObavjestiPage.xaml.cs">
+      <DependentUpon>VeterinarObavjestiPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Veterinar\VeterinarPropisujeLijekPage.xaml.cs">
+      <DependentUpon>VeterinarPropisujeLijekPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Veterinar\VeterinarWindow.xaml.cs">
+      <DependentUpon>VeterinarWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Zaposleni.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="CuvarDodajNovuHranuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cuvar\CuvarCuvariZaDodjeluPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cuvar\CuvarCuvariZivotinjePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cuvar\CuvarDodijeliCuvaraPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cuvar\CuvarHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cuvar\CuvarObavjestiPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cuvar\CuvarUrediHranu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cuvar\CuvarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shop\ShopDodajProizvodPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shop\ShopHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shop\ShopInventarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shop\ShopNarudzbaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shop\ShopObavjestiPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shop\ShopOdabirPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shop\ShopProizvodiPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shop\ShopWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Upravnik\UpravnikHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Upravnik\UpravnikHranaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Upravnik\UpravnikLijekoviPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Upravnik\UpravnikWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Upravnik\UpravnikZaposleniListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Upravnik\UpravnikDodajZaposleogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Veterinar\VeterinarAzurirajLijekovePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Veterinar\VeterinarAzuriraZivotinjuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Veterinar\VeterinarDodajLijekPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Veterinar\VeterinarDodajZivotinjuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Veterinar\VeterinarHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Veterinar\VeterinarHranaZivotinjePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Veterinar\VeterinarLijekoviListaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Veterinar\VeterinarLijekoviZivotinjePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Veterinar\VeterinarObavjestiPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Veterinar\VeterinarPropisujeLijekPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Veterinar\VeterinarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\addItemIcon.png" />
+    <Resource Include="Images\alertIcon.png" />
+    <Resource Include="Images\caretakerIcon.png" />
+    <Resource Include="Images\ceo.png" />
+    <Resource Include="Images\confirm.jpg" />
+    <Resource Include="Images\customerIcon.png" />
+    <Resource Include="Images\employeeIcon.jpg" />
+    <Resource Include="Images\foodIcon.jpg" />
+    <Resource Include="Images\home.png" />
+    <Resource Include="Images\homeIcon.png" />
+    <Resource Include="Images\img\anaconda.jpg" />
+    <Resource Include="Images\img\arctic-fox.jpg" />
+    <Resource Include="Images\img\bateleur-eagle.jpg" />
+    <Resource Include="Images\img\bee-eater.JPG" />
+    <Resource Include="Images\img\black-headed-weaver.jpg" />
+    <Resource Include="Images\img\bonobo.jpg" />
+    <Resource Include="Images\img\butterflychime.png" />
+    <Resource Include="Images\img\california-condor.jpg" />
+    <Resource Include="Images\img\camel.JPG" />
+    <Resource Include="Images\img\capybara.JPG" />
+    <Resource Include="Images\img\cheetah.jpg" />
+    <Resource Include="Images\img\chinese-alligator.jpg" />
+    <Resource Include="Images\img\clouded-leopard.JPG" />
+    <Resource Include="Images\img\dolphin.jpg" />
+    <Resource Include="Images\img\elephant.jpg" />
+    <Resource Include="Images\img\elephantplush.png" />
+    <Resource Include="Images\img\elephanttshirt.png" />
+    <Resource Include="Images\img\enclosure.png" />
+    <Resource Include="Images\img\favicon.png" />
+    <Resource Include="Images\img\ferrisWheel.jpg" />
+    <Resource Include="Images\img\foxornament.png" />
+    <Resource Include="Images\img\galapagos-tortoise.jpg" />
+    <Resource Include="Images\img\gelada.jpg" />
+    <Resource Include="Images\img\giftshop.png" />
+    <Resource Include="Images\img\giraffe-2.jpg" />
+    <Resource Include="Images\img\giraffe.jpg" />
+    <Resource Include="Images\img\goat.jpg" />
+    <Resource Include="Images\img\gorilla.jpg" />
+    <Resource Include="Images\img\grf.jpg" />
+    <Resource Include="Images\img\grizzly-bear.jpg" />
+    <Resource Include="Images\img\heroimage.jpg" />
+    <Resource Include="Images\img\heroimg.jpg" />
+    <Resource Include="Images\img\hippo.jpg" />
+    <Resource Include="Images\img\hippoplush.png" />
+    <Resource Include="Images\img\hippotshirt.png" />
+    <Resource Include="Images\img\zootshirt.png" />
+    <Resource Include="Images\img\koalatshirt.jpg" />
+    <Resource Include="Images\img\koalatshirt.png" />
+    <Resource Include="Images\img\lama.gif" />
+    <Resource Include="Images\img\leopard.jpg" />
+    <Resource Include="Images\img\leopardplush.png" />
+    <Resource Include="Images\img\lion.jpg" />
+    <Resource Include="Images\img\lion.png" />
+    <Resource Include="Images\img\lionornament.png" />
+    <Resource Include="Images\img\lionshirt.jpg" />
+    <Resource Include="Images\img\lizard.jpg" />
+    <Resource Include="Images\img\membership.png" />
+    <Resource Include="Images\img\panda.JPG" />
+    <Resource Include="Images\img\puzzle.png" />
+    <Resource Include="Images\img\rides.png" />
+    <Resource Include="Images\img\Ruxa&amp;rainaornament.png" />
+    <Resource Include="Images\img\takin.jpg" />
+    <Resource Include="Images\img\ticket.png" />
+    <Resource Include="Images\img\ticket2.png" />
+    <Resource Include="Images\img\tiger.jpg" />
+    <Resource Include="Images\img\tigertshirt.png" />
+    <Resource Include="Images\img\toy.jpg" />
+    <Resource Include="Images\img\zebra.jpg" />
+    <Resource Include="Images\img\zebratshirt.png" />
+    <Resource Include="Images\inventarIcon.png" />
+    <Resource Include="Images\logout.png" />
+    <Resource Include="Images\medicineIcon.png" />
+    <Resource Include="Images\profileIcon.jpg" />
+    <Resource Include="Images\settings1.png" />
+    <Resource Include="Images\shopIcon.png" />
+    <Resource Include="Images\shopIcon1.png" />
+    <Resource Include="Images\ticketIcon.png" />
+    <Resource Include="Images\vetIcon.png" />
+    <Resource Include="Images\vipIcon.png" />
+    <Resource Include="Images\zoo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
