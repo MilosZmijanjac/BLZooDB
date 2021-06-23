@@ -1,0 +1,28 @@
+﻿<Page x:Class="BLZooDB.VeterinarHranaZivotinjePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BLZooDB"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="600"
+      Title="VeterinarHranaZivotinjePage">
+
+
+    <Grid>
+        <Label Content="Hrana koje zivotinja trenutno  prima:" HorizontalAlignment="Center"
+                       VerticalAlignment="Top" FontSize="20" Margin="14,10,24,0" Width="562" />
+        <DataGrid  IsReadOnly="True" x:Name="HranaZivotinjeDataGrid" SelectionMode="Single" Height="355" Width="562"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="14,47,24,48">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding hrana_naziv}" Header="Naziv"  IsReadOnly="True" Width="Auto" />
+                <DataGridTextColumn Binding="{Binding velicina_porcije_u_g}" Header="Porcija (g)"
+                                     Width="Auto" />
+                <DataGridTextColumn Binding="{Binding broj_porcija_dnevno}" Header="Broj porcija po danu"
+                                    Width="Auto" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="Nazad" Click="Nazad_Click"   Margin="516,421,24,2" RenderTransformOrigin="0.511,0.561">Nazad</Button>
+    </Grid>
+</Page>
